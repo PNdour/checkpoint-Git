@@ -14,7 +14,7 @@ FUNCTION nbreString(texte: STRING) : INTEGER;
 VAR
     i, cpteString : INTEGER :=0;
 BEGIN
-    FOR i FROM 0 TO lenght(texte)-1 STEP 1  DO
+    FOR i FROM 1 TO lenght(texte)-1 STEP 1  DO
         IF (texte[i] = " " or texte[i]="." THEN
             cpteString = cpteString+1;
         END_IF
@@ -26,7 +26,7 @@ FUNCTION nbreVoy(texte: STRING) : INTEGER;
 VAR
     i, cpteVoy : INTEGER :=0;
 BEGIN
-    FOR i FROM 0 TO lenght(texte)-1 STEP 1  DO
+    FOR i FROM 1 TO lenght(texte)-1 STEP 1  DO
         IF (texte[i] = "a" or texte[i]="e" or texte[i] = "i" or texte[i]="o" or texte[i] = "u" or texte[i]="y") THEN
             cpteVoy = cpteVoy+1;
         END_IF
