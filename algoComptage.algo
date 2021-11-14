@@ -1,0 +1,48 @@
+ALGORITHM algoComptage
+FUNCTION nbreChar(texte: STRING) : INTEGER;
+VAR
+    i, cpteChar : INTEGER :=0;
+BEGIN
+    FOR i FROM 1 TO lenght(texte)-1 STEP 1  DO
+            cpteChar = cpteChar+1;
+    END_FOR
+    RETURN cpteChar 
+END
+
+
+FUNCTION nbreString(texte: STRING) : INTEGER;
+VAR
+    i, cpteString : INTEGER :=0;
+BEGIN
+    FOR i FROM 0 TO lenght(texte)-1 STEP 1  DO
+        IF (texte[i] = " " or texte[i]="." THEN
+            cpteString = cpteString+1;
+        END_IF
+    END_FOR
+    RETURN cpteString
+END
+
+FUNCTION nbreVoy(texte: STRING) : INTEGER;
+VAR
+    i, cpteVoy : INTEGER :=0;
+BEGIN
+    FOR i FROM 0 TO lenght(texte)-1 STEP 1  DO
+        IF (texte[i] = "a" or texte[i]="e" or texte[i] = "i" or texte[i]="o" or texte[i] = "u" or texte[i]="y") THEN
+            cpteVoy = cpteVoy+1;
+        END_IF
+    END_FOR
+    RETURN cpteVoy ;
+END
+
+VAR
+    phrase, choix: STRING;
+
+REPEAT
+    Write("Entrez une phrase")
+    Read(phrase)
+    Write("Votre prhase contient : ", nbreChar(phrase), "caratère(s)")
+    Write("Votre prhase contient : ", nbreString(phrase), "mot(s)")
+    Write("Votre prhase contient : ", nbreVoy(phrase), "voyelle(s)")
+    Write("Tapez N pour quitter et O pour recommencer")
+    Read(choix)
+UNTIL (choix = "N")
